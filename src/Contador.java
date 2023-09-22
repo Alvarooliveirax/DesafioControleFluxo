@@ -1,25 +1,28 @@
 import java.util.Scanner;
 
+
 public class Contador {
     public static void main(String[] args) throws Exception {
 
-        System.out.println("-------------------Desafio Controle de fluxo---------------------");
-        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-        System.out.println("Digite o primeiro número inteiro:");
-        int primeiroNumero = sc.nextInt();
-        System.out.println("Digite o segundo número inteiro:");
-        int segundoNumero = sc.nextInt();
+        System.out.println("-------------------Desafio Controle de fluxo---------------------");
+        System.out.println("Digite dois valores para saber o número de interações entre eles.");
+        System.out.println("1º valor: ");
+        int paramentro1 = lerInteiro(input);
+
+        System.out.println("2º valor: ");
+        int paramentro2 = lerInteiro(input);
 
         try{
-            contar(parametro1, parametro2);
+            contar(paramentro1, paramentro2);
         }catch (ParametrosInvalidosException e){
             System.out.println("Erro: " + e.getMessage());
         }
+    }
 
+    public static void contar(int parametroUm, int parametroDois) throws ParametrosInvalidosException {
 
-
-        public static void contar(int parametroUm, int parametroDois); throws ParametrosInvalidosException {
             if (parametroUm >= parametroDois) {
                 throw new ParametrosInvalidosException();
             }else {
@@ -28,9 +31,17 @@ public class Contador {
                     System.out.println("Imprimindo a " + i + "ª interação: " + i);
                 }
             }
-        }
-
-
     }
+
+    public static int lerInteiro(Scanner scanner) {
+        while (true) {
+            try {
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Digite um número inteiro:");
+            }
+        }
+    }
+
 }
 

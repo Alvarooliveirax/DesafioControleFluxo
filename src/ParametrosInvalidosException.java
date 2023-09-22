@@ -1,9 +1,6 @@
-import java.util.Scanner;
 
-public class ParametrosInvalidosException {
-
-    public ParametrosInvalidosException(String message) {
+public class ParametrosInvalidosException extends Exception {
+    public ParametrosInvalidosException() {
         super("O segundo parâmetro deve ser maior que o primeiro.");
     }
-
 }
